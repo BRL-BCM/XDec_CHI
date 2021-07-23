@@ -101,11 +101,12 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
                               as.numeric(CT2_get_means),
                               1:num_use)
   colnames(Cor_plot) = c("CT1","CT2","Order")
-  p1=ggplot2::ggplot(Cor_plot, ggplot2::aes(x=.data$CT1, y=.data$CT2)) + geom_point(ggplot2::aes(colour=.data$Order)) +
-    xlab(paste(CT_anchor,GOI_anchor)) +
-    ylab(paste(CT_cor,GOI_cor)) +
+  p1=ggplot2::ggplot(Cor_plot, ggplot2::aes(x=.data$CT1, y=.data$CT2)) +
+    ggplot2::geom_point(ggplot2::aes(colour=.data$Order)) +
+    ggplot2::xlab(paste(CT_anchor,GOI_anchor)) +
+    ggplot2::ylab(paste(CT_cor,GOI_cor)) +
     ggpubr::stat_cor(method = "pearson", label.x = mean(Cor_plot$CT1), label.y = (max(Cor_plot$CT2)+5)) +
-    scale_colour_viridis_c()
+    ggplot2::scale_colour_viridis_c()
 
   #Expression plot 1st gene
   Means_EDec = data.frame(means=CT1_get_means,
@@ -117,19 +118,19 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
   p2 = ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill=v.data$ariable)) +
-    geom_bar(stat="identity", position = "dodge")+
-    scale_fill_viridis_d()+
-    geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
+    ggplot2::geom_bar(stat="identity", position = "dodge")+
+    ggplot2::scale_fill_viridis_d()+
+    ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
-    ggtitle(paste(CT_anchor,GOI_anchor)) +
-    theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
-    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
-    xlab("Profiles") + ylab("Predicted Expression") +
-    theme(legend.position = "none")
+    ggplot2::ggtitle(paste(CT_anchor,GOI_anchor)) +
+    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
+    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::xlab("Profiles") + ggplot2::ylab("Predicted Expression") +
+    ggplot2::theme(legend.position = "none")
 
   #Expression plot 2nd gene
   Means_EDec = data.frame(means=CT2_get_means,
@@ -142,20 +143,20 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std = merge(Means_EDec,EDec_std,by = "variable")
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
-  p3 = ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
-    geom_bar(stat="identity", position = "dodge")+
-    scale_fill_viridis_d()+
-    geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
+  p3 = ggplot2::ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
+    ggplot2::geom_bar(stat="identity", position = "dodge")+
+    ggplot2::scale_fill_viridis_d()+
+    ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
-    ggtitle(paste(CT_cor,GOI_cor)) +
-    theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
-    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
-    xlab("Profiles") + ylab("Predicted Expression") +
-    theme(legend.position = "none")
+    ggplot2::ggtitle(paste(CT_cor,GOI_cor)) +
+    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
+    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::xlab("Profiles") + ggplot2::ylab("Predicted Expression") +
+    ggplot2::theme(legend.position = "none")
 
 
   Means_EDec = data.frame(means=as.numeric(GOI_order[GOI_anchor,]),
@@ -167,19 +168,19 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
   p4 = ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
-    geom_bar(stat="identity", position = "dodge")+
-    scale_fill_viridis_d()+
-    geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
+    ggplot2::geom_bar(stat="identity", position = "dodge")+
+    ggplot2::scale_fill_viridis_d()+
+    ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
-    ggtitle(paste("Bulk",GOI_anchor)) +
-    theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
-    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
-    xlab("Samples") + ylab("Expression") +
-    theme(legend.position = "none")
+    ggplot2::ggtitle(paste("Bulk",GOI_anchor)) +
+    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
+    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::xlab("Samples") + ggplot2::ylab("Expression") +
+    ggplot2::theme(legend.position = "none")
 
 
   Means_EDec = data.frame(means=as.numeric(GOI_order[GOI_cor,]),
@@ -191,19 +192,19 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
   p5 = ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
-    geom_bar(stat="identity", position = "dodge")+
-    scale_fill_viridis_d()+
-    geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
+    ggplot2::geom_bar(stat="identity", position = "dodge")+
+    ggplot2::scale_fill_viridis_d()+
+    ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
-    ggtitle(paste("Bulk",GOI_cor)) +
-    theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
-    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
-    xlab("Samples") + ylab("Expression") +
-    theme(legend.position = "none")
+    ggplot2::ggtitle(paste("Bulk",GOI_cor)) +
+    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
+    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
+    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::xlab("Samples") + ggplot2::ylab("Expression") +
+    ggplot2::theme(legend.position = "none")
 
   my_list <- list("Correlation" = cor_return,
                   "p.value" = p_return,
