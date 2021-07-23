@@ -19,8 +19,6 @@
 #' @return reports p.value, FDR, and correlation for genes passing thresholds in a given cell type
 #'
 #' @import EDec
-#' @import ggplot2
-#' @import ggpubr
 #'
 #' @export
 slidingWindow_1Gene_CT_correlations <- function(GeneExp,

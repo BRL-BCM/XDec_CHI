@@ -100,7 +100,7 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
                               as.numeric(CT2_get_means),
                               1:num_use)
   colnames(Cor_plot) = c("CT1","CT2","Order")
-  p1=ggplot2::ggplot(Cor_plot, aes(x=CT1, y=CT2)) + geom_point(aes(colour=Order)) +
+  p1=ggplot2::ggplot(Cor_plot, aes(x=.data$CT1, y=.data$CT2)) + geom_point(aes(colour=.data$Order)) +
     xlab(paste(CT_anchor,GOI_anchor)) +
     ylab(paste(CT_cor,GOI_cor)) +
     ggpubr::stat_cor(method = "pearson", label.x = mean(Cor_plot$CT1), label.y = (max(Cor_plot$CT2)+5)) +
@@ -115,11 +115,11 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std = merge(Means_EDec,EDec_std,by = "variable")
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
-  p2 = ggplot2::ggplot(x_mean_std,aes(x = variable , y = means, fill=variable)) +
+  p2 = ggplot2::ggplot(x_mean_std,aes(x = .data$variable , y = .data$means, fill=v.data$ariable)) +
     geom_bar(stat="identity", position = "dodge")+
     scale_fill_viridis_d()+
-    geom_errorbar(aes(ymax= means + std.error,
-                      ymin=ifelse(means-std.error < 0,0,means-std.error)),
+    geom_errorbar(aes(ymax= .data$means + .data$std.error,
+                      ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
     ggtitle(paste(CT_anchor,GOI_anchor)) +
     theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
@@ -141,11 +141,11 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std = merge(Means_EDec,EDec_std,by = "variable")
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
-  p3 = ggplot2::ggplot(x_mean_std,aes(x = variable , y = means, fill=variable)) +
+  p3 = ggplot2::ggplot(x_mean_std,aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
     geom_bar(stat="identity", position = "dodge")+
     scale_fill_viridis_d()+
-    geom_errorbar(aes(ymax= means + std.error,
-                      ymin=ifelse(means-std.error < 0,0,means-std.error)),
+    geom_errorbar(aes(ymax= .data$means + .data$std.error,
+                      ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
     ggtitle(paste(CT_cor,GOI_cor)) +
     theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
@@ -165,11 +165,11 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std = merge(Means_EDec,EDec_std,by = "variable")
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
-  p4 = ggplot2::ggplot(x_mean_std,aes(x = variable , y = means, fill=variable)) +
+  p4 = ggplot2::ggplot(x_mean_std,aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
     geom_bar(stat="identity", position = "dodge")+
     scale_fill_viridis_d()+
-    geom_errorbar(aes(ymax= means + std.error,
-                      ymin=ifelse(means-std.error < 0,0,means-std.error)),
+    geom_errorbar(aes(ymax= .data$means + .data$std.error,
+                      ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
     ggtitle(paste("Bulk",GOI_anchor)) +
     theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
@@ -189,11 +189,11 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std = merge(Means_EDec,EDec_std,by = "variable")
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
-  p5 = ggplot2::ggplot(x_mean_std,aes(x = variable , y = means, fill=variable)) +
+  p5 = ggplot2::ggplot(x_mean_std,aes(x = .data$variable , y = .data$means, fill=.data$variable)) +
     geom_bar(stat="identity", position = "dodge")+
     scale_fill_viridis_d()+
-    geom_errorbar(aes(ymax= means + std.error,
-                      ymin=ifelse(means-std.error < 0,0,means-std.error)),
+    geom_errorbar(aes(ymax= .data$means + .data$std.error,
+                      ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
                   position = position_dodge(0.95), width = 0.25) +
     ggtitle(paste("Bulk",GOI_cor)) +
     theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
