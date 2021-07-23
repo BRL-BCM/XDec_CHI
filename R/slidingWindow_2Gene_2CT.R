@@ -117,7 +117,7 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
   x_mean_std = merge(Means_EDec,EDec_std,by = "variable")
   x_mean_std$variable=as.factor(x_mean_std$variable)
 
-  p2 = ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill= .data$ariable)) +
+  p2 = ggplot2::ggplot(x_mean_std,ggplot2::aes(x = .data$variable , y = .data$means, fill= .data$variable)) +
     ggplot2::geom_bar(stat="identity", position = "dodge")+
     ggplot2::scale_fill_viridis_d()+
     ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
