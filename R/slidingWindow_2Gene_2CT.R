@@ -122,12 +122,12 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::scale_fill_viridis_d()+
     ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
-                  position = position_dodge(0.95), width = 0.25) +
+                  position = ggplot2::position_dodge(0.95), width = 0.25) +
     ggplot2::ggtitle(paste(CT_anchor,GOI_anchor)) +
-    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(plot.title = ggplot2::element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
+    ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
     ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
     ggplot2::xlab("Profiles") + ggplot2::ylab("Predicted Expression") +
     ggplot2::theme(legend.position = "none")
@@ -148,12 +148,12 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::scale_fill_viridis_d()+
     ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
-                  position = position_dodge(0.95), width = 0.25) +
+                  position = ggplot2::position_dodge(0.95), width = 0.25) +
     ggplot2::ggtitle(paste(CT_cor,GOI_cor)) +
-    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(plot.title = ggplot2::element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
+    ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
     ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
     ggplot2::xlab("Profiles") + ggplot2::ylab("Predicted Expression") +
     ggplot2::theme(legend.position = "none")
@@ -172,12 +172,12 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::scale_fill_viridis_d()+
     ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
-                  position = position_dodge(0.95), width = 0.25) +
+                  position = ggplot2::position_dodge(0.95), width = 0.25) +
     ggplot2::ggtitle(paste("Bulk",GOI_anchor)) +
-    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(plot.title = ggplot2::element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
+    ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
     ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
     ggplot2::xlab("Samples") + ggplot2::ylab("Expression") +
     ggplot2::theme(legend.position = "none")
@@ -196,12 +196,12 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::scale_fill_viridis_d()+
     ggplot2::geom_errorbar(ggplot2::aes(ymax= .data$means + .data$std.error,
                       ymin=ifelse(.data$means-.data$std.error < 0,0,.data$means-.data$std.error)),
-                  position = position_dodge(0.95), width = 0.25) +
+                  position = ggplot2::position_dodge(0.95), width = 0.25) +
     ggplot2::ggtitle(paste("Bulk",GOI_cor)) +
-    ggplot2::theme(plot.title = element_text(size=10,hjust = 0.5, face="bold")) +
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=5))+
-    ggplot2::theme(axis.text=element_text(size=10),axis.title=element_text(size=10)) +
-    ggplot2::theme(legend.text=element_text(size=10),legend.title=element_text(size=10))+
+    ggplot2::theme(plot.title = ggplot2::element_text(size=10,hjust = 0.5, face="bold")) +
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
+    ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
+    ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
     ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
     ggplot2::xlab("Samples") + ggplot2::ylab("Expression") +
     ggplot2::theme(legend.position = "none")
