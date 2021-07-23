@@ -17,6 +17,11 @@
 #' @param Significance_cutoff significance must be less than this to be reports
 #' @param Correlation_cutoff correlation must be less than this to be reports
 #' @return reports p.value, FDR, and correlation for genes passing thresholds in a given cell type
+#'
+#' @import EDec
+#' @import ggplot2
+#' @import ggpubr
+#'
 #' @export
 slidingWindow_1Gene_CT_correlations <- function(GeneExp,
                                                 CTproportions,

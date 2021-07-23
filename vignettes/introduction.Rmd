@@ -36,8 +36,8 @@ There are two functions you can perform.
 
 ```{r run 2Gene 2CT}
 
-Cor2Genes=slidingWindow_2Gene_2CT(GeneExp = slidingWindow_2Gene_2CT::ExpressionMatrix,
-                                  CTproportions = slidingWindow_2Gene_2CT::ProportionMatrix,
+Cor2Genes=slidingWindow_2Gene_2CT(GeneExp = SlidingWindowExtension::ExpressionMatrix,
+                                  CTproportions = SlidingWindowExtension::ProportionMatrix,
                                   GOI_anchor = "MSLN", #Gene samples are ordered by
                                   GOI_cor = "RELA", #Gene you want to correlate to
                                   CT_anchor = "Classical.A", #Cell type of anchor gene
@@ -90,8 +90,8 @@ In this case, you have 1 gene of interest and are hoping to ID
 
 ```{r run 1 gene 2CT}
 
-Cor2CT=slidingWindow_1Gene_CT_correlations(GeneExp = slidingWindow_2Gene_2CT::ExpressionMatrix,
-                                  CTproportions = slidingWindow_2Gene_2CT::ProportionMatrix,
+Cor2CT=slidingWindow_1Gene_CT_correlations(GeneExp = SlidingWindowExtension::ExpressionMatrix,
+                                  CTproportions = SlidingWindowExtension::ProportionMatrix,
                                   GOI_anchor = "MSLN", #Gene samples are ordered by
                                   CT_anchor = "Classical.A", #Cell type of anchor gene
                                   CT_cor="Immune", #Cell type of correlated gene
