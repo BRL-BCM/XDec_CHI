@@ -128,7 +128,7 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
     ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
-    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::theme(axis.text.x = ggplot2::element_blank(), axis.ticks.x = ggplot2::element_blank())+
     ggplot2::xlab("Profiles") + ggplot2::ylab("Predicted Expression") +
     ggplot2::theme(legend.position = "none")
 
@@ -154,7 +154,7 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
     ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
-    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::theme(axis.text.x = ggplot2::element_blank(), axis.ticks.x = ggplot2::element_blank())+
     ggplot2::xlab("Profiles") + ggplot2::ylab("Predicted Expression") +
     ggplot2::theme(legend.position = "none")
 
@@ -178,7 +178,7 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
     ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
-    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::theme(axis.text.x = ggplot2::element_blank(), axis.ticks.x = ggplot2::element_blank())+
     ggplot2::xlab("Samples") + ggplot2::ylab("Expression") +
     ggplot2::theme(legend.position = "none")
 
@@ -202,7 +202,7 @@ slidingWindow_2Gene_2CT <- function(GeneExp,
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=5))+
     ggplot2::theme(axis.text=ggplot2::element_text(size=10),axis.title=ggplot2::element_text(size=10)) +
     ggplot2::theme(legend.text=ggplot2::element_text(size=10),legend.title=ggplot2::element_text(size=10))+
-    ggplot2::theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+    ggplot2::theme(axis.text.x = ggplot2::element_blank(), axis.ticks.x = ggplot2::element_blank())+
     ggplot2::xlab("Samples") + ggplot2::ylab("Expression") +
     ggplot2::theme(legend.position = "none")
 
