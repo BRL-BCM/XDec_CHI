@@ -19,6 +19,7 @@
 #' @import EDec
 #' @import ggplot2
 #' @import ggpubr
+#' @importFrom rlang .data
 #'
 #' @export
 slidingWindow_2Gene_2CT <- function(GeneExp,
