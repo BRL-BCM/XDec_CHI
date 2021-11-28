@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(SlidingWindowExtension)
+library(XDec_CHI)
 ```
 
 This package assumes you have already completed a deconvolution which provides estimated proportions for each cell type. You will need:

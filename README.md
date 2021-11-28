@@ -5,7 +5,7 @@ This method uses proportions estimated via a deconvolution algorithm and a matri
 ## Using this package
 
 ### Installation
-You can install using devtools: require(devtools) install_github(“BRL-BCM/XDec-CHI”).
+You can install using devtools: require(devtools) install_github(“BRL-BCM/XDec_CHI”).
 
 Look at the package Rmd vignette.
 Located in /vignette/introduction.Rmd. It will take you through both functions in the package:
