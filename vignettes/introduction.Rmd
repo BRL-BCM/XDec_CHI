@@ -1,0 +1,133 @@
+---
+title: "Introduction to Sliding Window Deconvolution"
+date: "July 23, 2021"
+author: "Emily LaPlante"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(XDecCHI)
+```
+
+This package assumes you have already completed a deconvolution which provides estimated proportions for each cell type. You will need:
+
+1) An expression matrix where features are rows (in the example genes) and samples are columns
+2) A proportion matrix where samples are rows and cell types are columns
+
+Example data provided are 45 ICGC samples across 20 random genes.
+
+There are two functions you can perform.
+
+1) Correlate 2 genes of interest in a cell type specific manner
+2) Identify all genes that correlate to your gene of interest in a cell type specific manner
+
+#Correlate 2 genes of interest
+
+```{r run 2Gene 2CT}
+
+Cor2Genes=slidingWindow_2Gene_2CT(GeneExp = SlidingWindowExtension::ExpressionMatrix,
+                                  CTproportions = SlidingWindowExtension::ProportionMatrix,
+                                  GOI_anchor = "MSLN", #Gene samples are ordered by
+                                  GOI_cor = "RELA", #Gene you want to correlate to
+                                  CT_anchor = "Classical.A", #Cell type of anchor gene
+                                  CT_cor="Immune") #Cell type of correlated gene
+
+```
+
+## Output of 2 gene correlation {.tabset}
+
+###Written output
+
+The function reports the correlation and p.value of the two genes
+
+```{r}
+
+Cor2Genes$Correlation
+Cor2Genes$p.value
+
+```
+
+###Cell type specific graphs
+
+A plot with the correlation of the cell type specific expression across the windows
+A plot with estimated expression across all windows for the anchor gene
+A plot with estimated expression across all windows for the correlated gene
+
+```{r}
+
+Cor2Genes$Cor_plot
+Cor2Genes$CT_anchor_expression
+Cor2Genes$CT_cor_expression
+
+```
+
+###Bulk expression graphs
+
+A plot with bulk expression of the anchor gene of all samples ordered as they were for the sliding window deconvolution 
+A plot with bulk expression of the correlated gene of all samples ordered as they were for the sliding window deconvolution 
+
+```{r}
+
+Cor2Genes$Bulk_anchor_expression
+Cor2Genes$Bulk_cor_expression
+
+```
+
+#Correlate 2 genes of interest
+
+In this case, you have 1 gene of interest and are hoping to ID
+
+```{r run 1 gene 2CT}
+
+Cor2CT=slidingWindow_1Gene_CT_correlations(GeneExp = SlidingWindowExtension::ExpressionMatrix,
+                                  CTproportions = SlidingWindowExtension::ProportionMatrix,
+                                  GOI_anchor = "MSLN", #Gene samples are ordered by
+                                  CT_anchor = "Classical.A", #Cell type of anchor gene
+                                  CT_cor="Immune", #Cell type of correlated gene
+                                  Type_pValue="p.value", #FDR or p.value cut off
+                                  Significance_cutoff=0.05, #Significance < this to be reported
+                                  Correlation_cutoff=0.8) #Correlation > this to be reported (- and +)
+
+```
+
+## Output of 2 cell type {.tabset}
+
+The function reports the correlation and p.value of the two genes that pass the thresholds
+
+###All that pass
+
+This reports all features that pass the significance and correlation thresholds regardless of if the correlation is positive or negate
+
+```{r}
+
+Cor2CT$all_correlations
+
+```
+
+###Positive correlations only
+
+This matrix only reports positive correlations that pass the significance and correlation thresholds
+
+```{r}
+Cor2CT$Positive_correlations
+```
+
+###Negative correlations only
+
+This matrix only reports negative correlations that pass the significance and correlation thresholds
+
+```{r}
+Cor2CT$Negative_correlations
+```
+
