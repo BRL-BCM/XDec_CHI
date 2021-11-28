@@ -2,3 +2,7 @@
 
 export(slidingWindow_1Gene_CT_correlations)
 export(slidingWindow_2Gene_2CT)
+import(EDec)
+import(ggplot2)
+import(ggpubr)
+importFrom(rlang,.data)
